@@ -1,0 +1,16 @@
+<%= @topic.title %>
+
+<% if !@posts.empty? %>
+  <% @posts.each do |post| %>
+    <div class="card">
+      <h3><%= post.user.user_name %></h3>
+      <p><%= post.content %></p>
+      <br>
+    </div>
+  <% end %>
+<% end %>
+
+<%= render 'posts/form', post: @post%>
+
+<%= link_to 'Edit', edit_topic_path(@topic) %> |
+<%= link_to 'Back', topics_path %>
