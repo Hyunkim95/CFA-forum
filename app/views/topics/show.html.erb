@@ -5,12 +5,17 @@
     <div class="card">
       <h3><%= post.user.user_name %></h3>
       <p><%= post.content %></p>
+      <% if current_user.has_role? :admin or current_user.id == post.user_id%>
+      <%= link_to 'Delete', post_path(post), :method => :delete %>
+      <% end %>
       <br>
     </div>
   <% end %>
 <% end %>
 
+<% if user_signed_in? %>
 <%= render 'posts/form', post: @post%>
+<% end %>
 
 <%= link_to 'Edit', edit_topic_path(@topic) %> |
 <%= link_to 'Back', topics_path %>

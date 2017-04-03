@@ -1,4 +1,4 @@
 <% @topics.each do |topic| %>
   <%= topic.title %>
-  <%= link_to 'Delete', topics_path(topic), :method => :delete %>
+  <%= link_to 'Delete', topic_path(topic), :method => :delete %>
 <% end %>

@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   get 'admins/index'
-  
+
   resources :topics do
     member do
       resources :posts
